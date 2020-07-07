@@ -4,8 +4,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceError;
@@ -18,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.io.InputStream;
 

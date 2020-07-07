@@ -1,7 +1,8 @@
 package ren.yale.android.cachewebview;
 
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+
+import androidx.annotation.RequiresApi;
 
 import java.io.InputStream;
 import java.util.Map;
