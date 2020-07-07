@@ -8,10 +8,10 @@ version = '2.1.8'
 repositories {
     jcenter()
 }
-def siteUrl = 'https://github.com/yale8848/CacheWebView'   // 项目的主页
-def gitUrl = 'https://github.com/yale8848/CacheWebView.git'   // Git仓库的url
+def siteUrl = 'https://github.com/KryptKode/CacheWebView'   // 项目的主页
+def gitUrl = 'https://github.com/KryptKode/CacheWebView.git'   // Git仓库的url
 
-group = "ren.yale.android"
+group = "kryptkode.android"
 install {
     repositories.mavenInstaller {
         pom {
@@ -27,9 +27,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'Yale'
-                        name 'Yale'
-                        email 'royal8848@163.com'
+                        id 'KryptKode'
+                        name 'KryptKode'
+                        email 'paulakhamiogu@gmail.com'
                     }
                 }
                 scm {
