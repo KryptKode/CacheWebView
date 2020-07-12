@@ -60,11 +60,11 @@ public class CacheExtensionConfig {
         remove(STATIC, extension);
     }
 
-    private static void removeGlobalNonCachedExtension(String extension) {
+    public static void removeGlobalNonCachedExtension(String extension) {
         remove(NO_CACH, extension);
     }
 
-    private static void addGlobalNonCachedExtension(String extension) {
+    public static void addGlobalNonCachedExtension(String extension) {
         add(NO_CACH, extension);
     }
 
