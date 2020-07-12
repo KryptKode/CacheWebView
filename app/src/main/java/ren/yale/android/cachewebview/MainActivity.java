@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import java.io.File;
 import java.io.InputStream;
 
 import ren.yale.android.cachewebviewlib.WebViewCacheInterceptorInst;
@@ -131,6 +132,19 @@ public class MainActivity extends Activity {
         webSettings.setBuiltInZoomControls(false);
         webSettings.setDisplayZoomControls(false);
 
+        webSettings.setAllowFileAccess(true);
+
+        File dir = getCacheDir();
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        webSettings.setAppCachePath(dir.getPath());
+        webSettings.setAppCacheMaxSize(1024*1024*8);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webSettings.setDefaultTextEncodingName("UTF-8");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

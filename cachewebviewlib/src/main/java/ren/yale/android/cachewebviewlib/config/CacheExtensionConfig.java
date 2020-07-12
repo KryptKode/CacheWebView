@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class CacheExtensionConfig {
     //全局默认的
-    private static HashSet STATIC = new HashSet() {
+    private static HashSet<String> STATIC = new HashSet<String>() {
         {
             add("html");
             add("htm");
@@ -36,7 +36,7 @@ public class CacheExtensionConfig {
             add("webp");
         }
     };
-    private static HashSet NO_CACH = new HashSet() {
+    private static HashSet<String> NO_CACH = new HashSet<String>() {
         {
             add("mp4");
             add("mp3");
@@ -49,8 +49,8 @@ public class CacheExtensionConfig {
         }
     };
     //单独webview实例的
-    private HashSet statics = new HashSet(STATIC);
-    private HashSet no_cache = new HashSet(NO_CACH);
+    private HashSet<String> statics = new HashSet<>(STATIC);
+    private HashSet<String> no_cache = new HashSet<>(NO_CACH);
 
     public static void addGlobalExtension(String extension) {
         add(STATIC, extension);
@@ -60,15 +60,22 @@ public class CacheExtensionConfig {
         remove(STATIC, extension);
     }
 
+    private static void removeGlobalNonCachedExtension(String extension) {
+        remove(NO_CACH, extension);
+    }
 
-    private static void add(HashSet set, String extension) {
+    private static void addGlobalNonCachedExtension(String extension) {
+        add(NO_CACH, extension);
+    }
+
+    private static void add(HashSet<String> set, String extension) {
         if (TextUtils.isEmpty(extension)) {
             return;
         }
         set.add(extension.replace(".", "").toLowerCase().trim());
     }
 
-    private static void remove(HashSet set, String extension) {
+    private static void remove(HashSet<String> set, String extension) {
         if (TextUtils.isEmpty(extension)) {
             return;
         }
@@ -120,6 +127,7 @@ public class CacheExtensionConfig {
         }
         return false;
     }
+
     public void clearAll() {
         clearDiskExtension();
     }
